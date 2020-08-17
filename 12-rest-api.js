@@ -12,16 +12,16 @@ http.createServer( ( req, res)=> {
   switch(req.url){
     case '/':
       // send json
-      res.write(`{pageName: 'Home'}`);
+      res.write(JSON.stringify({pageName:'Home'}));
       break;
     case '/about': 
-     res.write(`{pageName: 'About'}`);
+     res.write(JSON.stringify({pageName:'About'}));
       break;
     case '/contact': 
-      res.write(`{pageName: 'Contact'}`);
+      res.write(JSON.stringify({pageName:'Contact'}));
       break;
     default: 
-      res.write(`{pageName: '404'}`);
+      res.write(JSON.stringify({pageName:'404'}));
   }
 
   res.end();
