@@ -18,4 +18,4 @@ eventEmitter.on('file_read', () =>{
   });
 });
 
-eventEmitter.emit('file_read');
+eventEmitter.emit('file_read', 'sample.txt');
