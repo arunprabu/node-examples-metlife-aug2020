@@ -2,6 +2,7 @@
 const http = require('http');
 
 // Server side rendering app -- traditional webapp 
+
 http.createServer( ( req, res)=> {
 
   let templateContent;
@@ -22,6 +23,8 @@ http.createServer( ( req, res)=> {
     default: 
       templateContent = `<h1>404 Page Not Found</h1>`;
   }
+
+  
 
   res.writeHead(200, {"Content-Type": "text/html"});  
   res.write(`

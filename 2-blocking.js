@@ -6,5 +6,3 @@ var output = fs.readFileSync('sample.txt'); // blocking call
 console.log(output.toString());
 
 console.log("The End");
-
-

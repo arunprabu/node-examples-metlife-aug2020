@@ -23,5 +23,4 @@ fs.readFile('sample.txt' , (err, data) => {  // error first callback
 }); // non blocking call -- async 
 
 
-
 console.log('The End');
