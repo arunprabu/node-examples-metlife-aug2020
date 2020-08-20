@@ -1,0 +1,5 @@
+{
+    "url": "mongodb://localhost/contactsDb",
+    "options": {}
+}
+
