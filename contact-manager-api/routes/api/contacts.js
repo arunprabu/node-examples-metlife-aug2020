@@ -29,8 +29,6 @@ router.get('/', (req, res, next) => {  // 1. get the request from rest api clien
 
 });
 
-
-
 /* CREATE --  POST api/contacts API End Point. */
 router.post('/', (req, res, next) => {
   console.log('Inside Contacts Post Method');
@@ -45,7 +43,16 @@ router.post('/', (req, res, next) => {
   });
 });
 
-// READ 
+// api/contacts/count  -- todo: expected url localhost:3000/api/contacts/count?fullName=John
+router.get('/count', (req, res, next) =>{
+  console.log(req.query);
+  let result = {
+    msg: 'Searched successfully!'
+  }
+  res.json( result );
+});
+
+// READ -- api/contacts/:id      - anything other than search 
 router.get('/:id', (req, res, next) => {
   // read url param from req 
   
@@ -74,7 +81,6 @@ router.put('/:id', (req, res, next) => {
 
 });
 
-
 // Todo: Delete 
 router.delete('/:id', (req, res, next) =>{
   let status = {
@@ -82,6 +88,5 @@ router.delete('/:id', (req, res, next) =>{
   }
   res.json( status );
 });
-
 
 module.exports = router;

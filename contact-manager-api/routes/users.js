@@ -11,12 +11,11 @@ var storage = multer.diskStorage({
       cb(null, './public/data/uploads/');
    },
   filename: function (req, file, cb) {
-      cb(null , file.originalname+ Date.now());
+      cb(null , file.originalname);
   }
 });
 
 var upload = multer({ storage: storage })
-
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -31,7 +30,6 @@ router.post('/upload', upload.single('profile'), function(req, res, next) {
   }catch(err) {
     res.send(400);
   }
-
 });
 
 
