@@ -7,6 +7,14 @@ exports.signup = function (req, callback) {  // 1. get the req from the service
 
 	// we will have passport based signup 
 
+	//var generator = require('generate-password');  // move it to top
+ 	//generate temp password 
+  // var _tempPassword = generator.generate({
+  //                                         length: 14,
+  //                                         numbers: true
+	//                                       });
+	
+
 	// to create a user 
 	var userDao = new User(req.body);
 
@@ -49,6 +57,7 @@ exports.login = function (req, callback) {  // 1. get the req from the service
 
 		// If a user is found
 		if(user){      
+			
 			var userData = {  
 												email : user.email, 
 												name: user.name,
