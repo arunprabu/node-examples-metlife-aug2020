@@ -1,0 +1,52 @@
+npm commands 
+    npm prune 
+    npm i pkg-name -g
+
+express -h 
+express myapp 
+cd myapp 
+npm i 
+npm start 
+
+Http -- SSR (template engine )
+
+File upload with multer
+https://medium.com/@nitinpatel_20236/image-upload-via-nodejs-server-3fe7d3faa642
+
+npm i mongoose-auto-increment
+
+====
+
+Roadmap
+--
+    1. File upload (todo: Work with multiple file uploads )
+    2. Auth 
+    3. TypeScript express  (Read) 
+    4. Video conferencing app 
+
+----
+
+
+File upload 
+---
+    Step 1:
+        npm i multer
+    
+    Step 2: 
+        Having a SSR front end with file picker and upload button 
+        Refer routes/users.js 
+        Refer view/users.pug 
+    
+    Step 3: 
+
+
+
+TS => JS 
+    dev setup with ts 
+    workflow 
+    build tool 
+    architecture 
+    unit testing 
+    moongoose 
+    auth 
+    
