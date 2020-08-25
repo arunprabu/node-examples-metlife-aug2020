@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-var authUtil = require('../../utils/authUtil');
+//var authUtil = require('../../utils/authUtil');
 
 const contactService = require('../../services/contactService');
-const auth = require('../../utils/authUtil');
+// const auth = require('../../utils/authUtil');
 
 // req method, req url, url params, query params, req header 
 
@@ -32,7 +32,7 @@ router.get('/', (req, res, next) => {  // 1. get the request from rest api clien
 });
 
 /* CREATE --  POST api/contacts API End Point. */
-router.post('/', authUtil.required,  (req, res, next) => {
+router.post('/', (req, res, next) => {
   console.log('Inside Contacts Post Method');
   console.log(req.body);
   
@@ -46,12 +46,29 @@ router.post('/', authUtil.required,  (req, res, next) => {
 });
 
 // api/contacts/count  -- todo: expected url localhost:3000/api/contacts/count?fullName=John
-router.get('/count', authUtil.optional, (req, res, next) =>{
+router.get('/mysql', (req, res, next) =>{
   console.log(req.query);
-  let result = {
-    msg: 'Searched successfully!'
-  }
-  res.json( result );
+  
+  contactService.getContactsFromMySQL( (err, data) => {
+    if (!err) {
+      res.json(data);
+    } else {
+      res.json(err);
+    }
+  });
+});
+
+// api/contacts/count  -- todo: expected url localhost:3000/api/contacts/count?fullName=John
+router.get('/count', (req, res, next) =>{
+  console.log(req.query);
+  
+  contactService.getContactsCount( (err, data) => {
+    if (!err) {
+      res.json(data);
+    } else {
+      res.json(err);
+    }
+  });
 });
 
 // READ -- api/contacts/:id      - anything other than search 
@@ -90,5 +107,7 @@ router.delete('/:id', (req, res, next) =>{
   }
   res.json( status );
 });
+
+
 
 module.exports = router;

@@ -14,13 +14,14 @@ const auth = {
     secret: 'secret',
     userProperty: 'payload',
     getToken: getTokenFromHeaders,
+    credentialsRequired: true,
   }),
   optional: jwt({
     secret: 'secret',
     userProperty: 'payload',
     getToken: getTokenFromHeaders,
     credentialsRequired: false,
-  }),
+  })
 };
 
 module.exports = auth;

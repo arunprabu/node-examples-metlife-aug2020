@@ -5,10 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
 var session = require('express-session');  //needed for passport
-var jwt = require('express-jwt'); //needed for passport 
+//var jwt = require('express-jwt'); //needed for passport 
 
 var indexRouter = require('./routes/index'); // custom pkg 
 var usersRouter = require('./routes/users');  // custom pkg
+var chatRouter = require('./routes/chat');  // custom pkg
 var contactsRouter = require('./routes/api/contacts');  // custom pkg
 var authRouter = require('./routes/api/auth');  // custom pkg
 
@@ -34,7 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: 'thesecret',
+  secret: 'secret',
   saveUninitialized: false,
   resave: false
 }))
@@ -46,6 +47,7 @@ app.use(session({
 
 app.use('/', indexRouter); // api end point http://localhost:3000
 app.use('/users', usersRouter); // api end point http://localhost:3000/users
+app.use('/chat', chatRouter); 
 app.use('/api/contacts', contactsRouter); // api end point http://localhost:3000/api/contacts
 app.use('/api/auth', authRouter);
 

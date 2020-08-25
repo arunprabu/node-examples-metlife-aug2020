@@ -10,7 +10,7 @@
 var Contact = require("../models/contact"); // open up a connection with db
 
 //get All contacts
-exports.getContacts = function (callback) {  // 1. get the req from the service 
+exports.getContacts = function ( callback) {  // 1. get the req from the service 
   console.log('Inside getContacts of contactService');
 
   // 2. construct the query & execute 
@@ -22,6 +22,23 @@ exports.getContacts = function (callback) {  // 1. get the req from the service
     }
     // 3. send the data from db as part of resp -- send it to routes 
     callback(err, data);
+  });
+}
+
+//get getContactsCount
+exports.getContactsCount = function ( callback) {  // 1. get the req from the service 
+  console.log('Inside getContactsCount of contactService');
+
+
+  // 2. construct the query & execute 
+  Contact.find((err, data)=>{
+    if(!err){
+      console.log(data.length);
+    }else{
+      console.log(err);
+    }
+    // 3. send the data from db as part of resp -- send it to routes 
+    callback(err, data.length);
   });
 }
 
@@ -84,3 +101,24 @@ exports.updateContact = function (_contactId, _contactData, callback) {
 
 
 // upload 
+
+// work with mysql 
+
+// var mysql      = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database : 'my_db'
+// });
+ 
+// connection.connect();
+ 
+
+// exports.getContactsFromMySQL = function ( callback) {  // 1. get the req from the service 
+//   console.log('Inside getContactsFromMySQL of contactService');
+
+//   connection.query('select * from ',  (err, data)=>{
+
+//   })
+// }

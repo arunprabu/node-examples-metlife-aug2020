@@ -4,16 +4,13 @@ const User = require('../models/user');
 
 exports.signup = function (req, callback) {  // 1. get the req from the service 
 	console.log('Inside signup of authService');
-
-	// we will have passport based signup 
-
 	//var generator = require('generate-password');  // move it to top
  	//generate temp password 
-  // var _tempPassword = generator.generate({
-  //                                         length: 14,
-  //                                         numbers: true
-	//                                       });
-	
+	// var _tempPassword = generator.generate({
+	//                                         length: 14,
+	//                                         numbers: true
+	//                                   });
+		
 
 	// to create a user 
 	var userDao = new User(req.body);
@@ -76,9 +73,10 @@ exports.login = function (req, callback) {  // 1. get the req from the service
 		}
 	})(req, callback);
 	// login 
-	// ask the user to reset the p/w and after rest, change the status to VERIFIED
-	// when the user changes the p/w -- that will also be be encrypted and saved 
-
+	// ask the user to reset the p/w and after rest, 
+	// change the status to VERIFIED
+	// when the user changes the p/w -- 
+	// that will also be be encrypted and saved 
 
 
 }
